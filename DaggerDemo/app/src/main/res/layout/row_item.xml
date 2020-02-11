@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="trendingRepoItem"
+            type="com.example.myapplication.data.TrendingRepository" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewmodel.TrendingViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dimen_16dp"
+        >
+
+        <!--  layout specifications need to be rechecked-->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="196dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@{trendingRepoItem.author}"
+            android:textColor="#52575c"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="username" />
+
+        <TextView
+            android:id="@+id/tv_sec_name"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginEnd="36dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@{trendingRepoItem.name}"
+            android:textColor="#52575c"
+            android:textSize="@dimen/dimen_15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_image"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="author name" />
+
+        <TextView
+            tools:text="hdhhfhfgjhjhtktkktktltltltlj"
+            android:id="@+id/tv_github_repo_url"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/repo_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.388"
+            app:layout_constraintStart_toEndOf="@+id/iv_image"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sec_name"
+            app:layout_constraintVertical_bias="0.56"
+            android:text="@{trendingRepoItem.url}"
+             />
+
+        <com.example.github_without_dagger.utils.CircularImageView
+            android:id="@+id/iv_image"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="21dp"
+            android:contentDescription="@string/no_image"
+            android:src="@drawable/ic_placeholder"
+            app:avatarUrl="@{trendingRepoItem.avatar}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/colorAccent"
+            tools:layout_marginStart="@dimen/dimen_16dp" />
+
+        <include
+            layout="@layout/layout_repo_details"
+            android:id="@+id/repo_details"
+            android:visibility="@{trendingRepoItem.isExpanded?View.VISIBLE : View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            app:forks="@{``+trendingRepoItem.forks}"
+            app:language="@{trendingRepoItem.language}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.154"
+            app:layout_constraintStart_toEndOf="@+id/iv_image"
+            app:layout_constraintTop_toBottomOf="@+id/tv_github_repo_url"
+            app:stars="@{``+trendingRepoItem.stars}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

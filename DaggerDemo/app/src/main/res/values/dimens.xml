@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_retry_width_328dp">328dp</dimen>
+    <dimen name="btn_retry_height_48dp">48dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dimen_15sp">15sp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_24dp">24dp</dimen>
+    <dimen name="dimen_18sp">18sp</dimen>
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_1dp">1dp</dimen>
+</resources>

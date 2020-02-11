@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewmodel.TrendingViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/view_no_internet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_no_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nointernet_connection"
+            android:contentDescription="@string/no_internet_connection"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--remaining: font-family to be used : Roboto-Bold-->
+        <TextView
+            android:id="@+id/tv_sth_went_wrong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/something_went_wrong"
+            android:textColor="@color/somenthing_went_wrong_color"
+            android:textSize="@dimen/dimen_18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/iv_no_internet" />
+
+        <TextView
+            android:id="@+id/tv_no_internet_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/no_internet_desc"
+            android:textColor="@color/no_internet_desc_color"
+            android:textSize="@dimen/dimen_15sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sth_went_wrong" />
+
+        <!-- font family=> roboto-medium has to be applied-->
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="@dimen/btn_retry_width_328dp"
+            android:layout_height="@dimen/btn_retry_height_48dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:layout_marginBottom="@dimen/dimen_16dp"
+            android:background="@drawable/retry_button_rounded_corner"
+            android:text="@string/retry"
+            android:onClick="@{()->viewModel.fetchTrendingRepoData()}"
+            android:textColor="@color/btn_retry_text_color"
+            android:textSize="@dimen/dimen_15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

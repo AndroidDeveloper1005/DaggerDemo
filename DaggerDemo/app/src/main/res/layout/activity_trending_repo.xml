@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="showList"
+            type="boolean" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewmodel.TrendingViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/appBarLayout"
+            >
+
+            <include android:id="@+id/toolbar" layout="@layout/layout_toolbar"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/pullToRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="56dp"
+            android:layout_marginStart="@dimen/dimen_16dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTrendingRepoList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                android:visibility="@{showList? View.VISIBLE : View.GONE}"
+                tools:listitem="@layout/row_item"
+                />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <include
+            tools:visibility="gone"
+            app:viewModel = "@{viewModel}"
+            android:id="@+id/view_no_internet"
+            android:visibility="@{showList? View.GONE : View.VISIBLE}"
+            layout="@layout/layout_no_internet"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

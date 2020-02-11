@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="btn_retry_text_color">#31B057</color>
+    <color name="no_internet_desc_color">#929292</color>
+    <color name="somenthing_went_wrong_color">#4A4A4A</color>
+    <color name="retry_btn_outline_color">#31B057</color>
+</resources>
